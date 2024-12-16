@@ -22,8 +22,14 @@ class Mod implements IPostSptLoadMod
         // Disable the seasonal event detection
         seasonConfig.enableSeasonalEventDetection = false;
 
+        // extra make sure that events are disabled
+        for (const i in seasonConfig.events)
+        {
+            seasonConfig.events[i].enabled = false;
+        }
+
         // Log the new seasonal event setting
-        logger.info(`Seasonal event detection is now off.`);
+        logger.log("[SCHKRM] Seasonal events are now off.", "yellow");
     }
 }
 
