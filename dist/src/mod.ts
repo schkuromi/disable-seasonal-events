@@ -1,18 +1,14 @@
 import { DependencyContainer } from "tsyringe";
 
-import { IPostSptLoadMod } from "@spt/models/external/IPostSptLoadMod";
-import { ILogger } from "@spt/models/spt/utils/ILogger";
+import { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod";
 import { ConfigServer } from "@spt/servers/ConfigServer";
 import { ConfigTypes } from "@spt/models/enums/ConfigTypes";
 import { ISeasonalEventConfig } from "@spt/models/spt/config/ISeasonalEventConfig";
 
-class Mod implements IPostSptLoadMod
+class Mod implements IPostDBLoadMod
 {
-    public postSptLoad(container: DependencyContainer): void
+    public postDBLoad(container: DependencyContainer): void
     {
-        // get logger
-        const logger = container.resolve<ILogger>("WinstonLogger");
-
         // get the config server so we can get a config with it
         const configServer = container.resolve<ConfigServer>("ConfigServer");
 
@@ -29,7 +25,7 @@ class Mod implements IPostSptLoadMod
         }
 
         // Log the new seasonal event setting
-        logger.log("[SCHKRM] Seasonal events are now off.", "yellow");
+        console.log("[SCHKRM] Seasonal events are now off.");
     }
 }
 
