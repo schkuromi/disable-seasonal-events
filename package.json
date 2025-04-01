@@ -1,6 +1,6 @@
 {
     "name": "disable-seasonal-events",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "sptVersion": "~3.11",
     "loadBefore": [],
     "loadAfter": [],
