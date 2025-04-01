@@ -1,13 +1,13 @@
 import { DependencyContainer } from "tsyringe";
 
-import { IPostDBLoadMod } from "@spt/models/external/IPostDBLoadMod";
+import { IPreSptLoadMod } from "@spt/models/external/IPreSptLoadMod";
 import { ConfigServer } from "@spt/servers/ConfigServer";
 import { ConfigTypes } from "@spt/models/enums/ConfigTypes";
 import { ISeasonalEventConfig } from "@spt/models/spt/config/ISeasonalEventConfig";
 
-class Mod implements IPostDBLoadMod
+class Mod implements IPreSptLoadMod
 {
-    public postDBLoad(container: DependencyContainer): void
+    public preSptLoad(container: DependencyContainer): void
     {
         // get the config server so we can get a config with it
         const configServer = container.resolve<ConfigServer>("ConfigServer");
